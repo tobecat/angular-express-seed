@@ -2,18 +2,38 @@ extends layout
 
 block body
   div(ng-controller='AppCtrl')
-    h2 Hello {{name}}
-    ul.menu
-      li
-        a(href='view1') view1
-      li
-        a(href='view2') view2
-
-    div(ng-view)
-
-    div
-      | Angular seed app: v
-      span(app-version)
+    div(class='navbar-wrapper')
+      header(class='navbar navbar-default navbar-fixed-top', role='banner')
+        div(class='container')
+          div(class='navbar-header')
+            a(class='navbar-brand')
+              span(class='glyphicon glyphicon-camera', style='margin-right:5px;')
+              span LOUISE
+          p(class='navbar-text navbar-right')
+            i(class='fa fa-facebook-square', style='margin-right:5px;')
+            a(class='navbar-link', target='_blank' ,href='https://www.facebook.com/luisephoto') Louise - Photographer
+    div(id='carousel-pic', class='carousel slide', data-ride='carousel')
+      ol(class='carousel-indicators')
+        li(data-target='#carousel-pic', data-slide-to='0', class='active')
+        li(data-target='#carousel-pic', data-slide-to='1')
+        li(data-target='#carousel-pic', data-slide-to='2')
+        li(data-target='#carousel-pic', data-slide-to='3')
+        li(data-target='#carousel-pic', data-slide-to='4')
+      div(class='carousel-inner')
+        div(class='item active')
+          img(src='pics/web1.jpg', alt='')
+        div(class='item')
+          img(src='pics/web2.jpg', alt='')
+        div(class='item')
+          img(src='pics/web3.jpg', alt='')
+        div(class='item')
+          img(src='pics/web4.jpg', alt='')
+        div(class='item')
+          img(src='pics/web5.jpg', alt='')
+      a(class='left carousel-control', href='#carousel-pic', data-slide='prev')
+        span(class='glyphicon glyphicon-chevron-left')
+      a(class='right carousel-control', href='#carousel-pic', data-slide='next')
+        span(class='glyphicon glyphicon-chevron-right')
 
   script(src='js/lib/angular/angular.js')
   script(src='js/app.js')
@@ -21,3 +41,5 @@ block body
   script(src='js/controllers.js')
   script(src='js/filters.js')
   script(src='js/directives.js')
+  script(src='https://code.jquery.com/jquery.js')
+  script(src='bootstrap/js/bootstrap.min.js')

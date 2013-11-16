@@ -4,6 +4,10 @@
 
 angular.module('myApp.controllers', []).
   controller('AppCtrl', function ($scope, $http) {
+    $('.carousel').carousel({
+      interval: 5000,
+      pause: 'false'
+    });
 
     $http({
       method: 'GET',
@@ -16,9 +20,9 @@ angular.module('myApp.controllers', []).
       $scope.name = 'Error!'
     });
 
+
   }).
   controller('MyCtrl1', function ($scope) {
-    // write Ctrl here
 
   }).
   controller('MyCtrl2', function ($scope) {

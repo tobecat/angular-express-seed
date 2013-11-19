@@ -22,19 +22,56 @@ block body
         li(data-target='#carousel-pic', data-slide-to='4')
       div(class='carousel-inner')
         div(class='item active')
-          img(src='pics/web1.jpg', alt='')
+          img(src='pics/banner/web1.jpg', alt='')
         div(class='item')
-          img(src='pics/web2.jpg', alt='')
+          img(src='pics/banner/web2.jpg', alt='')
         div(class='item')
-          img(src='pics/web3.jpg', alt='')
+          img(src='pics/banner/web3.jpg', alt='')
         div(class='item')
-          img(src='pics/web4.jpg', alt='')
+          img(src='pics/banner/web4.jpg', alt='')
         div(class='item')
-          img(src='pics/web5.jpg', alt='')
+          img(src='pics/banner/web5.jpg', alt='')
       a(class='carousel-control left', href='#carousel-pic', data-slide='prev')
         span(class='glyphicon glyphicon-chevron-left')
       a(class='carousel-control right', href='#carousel-pic', data-slide='next')
         span(class='glyphicon glyphicon-chevron-right')
+
+    div(class='container', style='padding-top:20px; padding-bottom:20px; margin:0 auto;')
+      div(style='margin:0 auto;width:300px;')
+        div(class='btn-group',style='padding-bottom:10px;')
+          button(type='button',class='btn btn-default', ng-click="showGraduation()") รับปริญญา
+          button(type='button',class='btn btn-default', ng-click="showWedding()") Pre-Wedding
+          button(type='button',class='btn btn-default', ng-click="showPortrait()") Portrait
+      div(id='links', ng-show='isGraduation', style="width:1000px;margin:0 auto;")
+        a(href='{{graduation.full}}', data-gallery,ng-repeat="graduation in graduations")
+          img(src='{{graduation.thumbnail}}')
+      div(id='links', ng-show='isWedding', style="width:1000px;margin:0 auto;")
+        a(href='{{wedding.full}}', data-gallery,ng-repeat="wedding in weddings")
+          img(src='{{wedding.thumbnail}}')
+      div(id='links', ng-show='isPortrait', style="width:1000px;margin:0 auto;")
+        a(href='{{portrait.full}}', data-gallery,ng-repeat="portrait in portraits")
+          img(src='{{portrait.thumbnail}}')
+
+    div(id='blueimp-gallery', class='blueimp-gallery')
+      div(class='slides')
+      h3(class='title')
+      a(class='prev') <
+      a(class='next') >
+      a(class='close') x
+      a(class='play-pause')
+      ol(class='indicator')
+      div(class='modal fade')
+        div(class='modal-dialog')
+          div(class='modal-content')
+            div(class='modal-header')
+              button(type='button', class='close', aria-hidden='true') &times;
+              h4(class='modal-title')
+            div(class='modal-body next')
+            div(class='modal-footer')
+              button(type='button', class='btn btn-default pull-left prev')
+                i(class='glyphicon glyphicon-chevron-left') Previous
+              button(type='button', class='btn btn-primary next') Next
+                i(class='glyphicon glyphicon-chevron-right')
 
   script(src='js/lib/angular/angular.js')
   script(src='js/app.js')
@@ -44,3 +81,5 @@ block body
   script(src='js/directives.js')
   script(src='https://code.jquery.com/jquery.js')
   script(src='bootstrap/js/bootstrap.min.js')
+  script(src='http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js')
+  script(src='bootstrap-image-gallery/js/bootstrap-image-gallery.min.js')

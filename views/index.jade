@@ -37,11 +37,15 @@ block body
         span(class='glyphicon glyphicon-chevron-right')
 
     div(class='container', style='padding-top:20px; padding-bottom:20px; margin:0 auto;')
-      div(style='margin:0 auto;width:300px;')
-        div(class='btn-group',style='padding-bottom:10px;')
-          button(type='button',class='btn btn-default', ng-click="showGraduation()") รับปริญญา
-          button(type='button',class='btn btn-default', ng-click="showWedding()") Pre-Wedding
-          button(type='button',class='btn btn-default', ng-click="showPortrait()") Portrait
+      div(style='margin:10px auto;width:480px;')
+        button(type="button", class="btn btn-link btn-lg", ng-click="showGraduation()")
+          h2(style="margin-top:0px;") รับปริญญา
+        h2(style="display:inline;") |
+        button(type="button",class="btn btn-link btn-lg", ng-click="showWedding()")
+          h2(style="margin-top:0px;") พรีเวดดิ้ง
+        h2(style="display:inline;") |
+        button(type="button", class="btn btn-link btn-lg", ng-click="showPortrait()")
+          h2(style="margin-top:0px;") Portrait
       div(id='links', ng-show='isGraduation', style="width:1000px;margin:0 auto;")
         a(href='{{graduation.full}}', data-gallery,ng-repeat="graduation in graduations")
           img(src='{{graduation.thumbnail}}')
